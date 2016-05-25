@@ -12,10 +12,29 @@
 
 </head>
 <body>
-    <div> 
+    <div>
         ViewBag传值  =@ViewBag.title
         <br />
-        
+        @{
+            //string str = "<a href=\"http://www.baidu.com\">跳转到百度</a>";
+            string str = "<a href='http://www.baidu.com'>跳转到百度</a>";
+
+            @Html.Raw(str)
+
+            <br />
+            MvcHtmlString mvcStr = new MvcHtmlString(str);
+            @mvcStr
+            @mvcStr.ToHtmlString();
+
+            <br />
+
+            HtmlString htmlStr = new HtmlString(str);
+
+            @htmlStr
+            @htmlStr.ToHtmlString();
+        }
+
+
     </div>
 </body>
 </html>
